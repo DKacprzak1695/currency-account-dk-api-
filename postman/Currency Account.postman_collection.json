@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "e1206807-d282-4d7b-a263-fa925aa8c610",
+		"name": "Currency Account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35038669"
+	},
+	"item": [
+		{
+			"name": "User registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Adrian\",\r\n    \"lastName\": \"Baran\",\r\n    \"pesel\": \"07240987553\",\r\n    \"plnBalance\": 5000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{currency_account_url}}/user-accounts",
+					"host": [
+						"{{currency_account_url}}"
+					],
+					"path": [
+						"user-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Currency Exchange",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromCurrency\": \"PLN\",\r\n    \"toCurrency\": \"USD\",\r\n    \"amount\": 100.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{currency_account_url}}/user-accounts/{{pesel}}/exchange",
+					"host": [
+						"{{currency_account_url}}"
+					],
+					"path": [
+						"user-accounts",
+						"{{pesel}}",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieving user account information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{currency_account_url}}/user-accounts/{{pesel}}",
+					"host": [
+						"{{currency_account_url}}"
+					],
+					"path": [
+						"user-accounts",
+						"{{pesel}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
